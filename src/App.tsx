@@ -421,7 +421,7 @@ function getRoles(): Role[] {
         "Developing iRRd data pipelines at the HERD Lab in collaboration with NYU Global TIES for Children; introduced batched execution saving 24+ hours per execution and built ECG/EDA compliant MIRAGE mapping apps",
       ],
       tech: ["Software Engineering", "System Design", "Data Acquisition", "Visual Analytics", "Ethical AI", "Distributed Systems", "Machine Learning"],
-      img: "./ucdavis.png",
+      img: "/ucdavis.png",
     },
     {
       company: "UBS",
@@ -436,7 +436,7 @@ function getRoles(): Role[] {
         <>Earned <a href="https://www.credly.com/badges/2a455056-0625-459c-b96e-ba3245b1a22a" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">Certified Engineer</a> title and recognised with 4 awards for exceptional performance and leadership in JOSH and CSR initiatives</>
       ],
       tech: ["React", "JavaScript/TypeScript", "SpringBoot", "JEST/JUnit", "Azure", "Docker", "Kubernetes", "SQL"],
-      img: "./UBS-logo.png",
+      img: "/UBS-logo.png",
       imgClassName: "bg-white object-contain w-24 h-24 md:w-28 md:h-28 rounded-2xl p-3",
     },
     {
@@ -450,7 +450,7 @@ function getRoles(): Role[] {
         "Shipped 6 CI/CD-compliant production releases with Docker and Kubernetes; managed production hotfixes across 12+ Agile sprints",
       ],
       tech: ["React", "JavaScript/TypeScript", "Material UI", "Broadridge UI", "SpringBoot", "JEST/JUnit", "Azure", "Docker", "Kubernetes", "SQL"],
-      img: "./UBS-logo.png",
+      img: "/UBS-logo.png",
       imgClassName: "bg-white object-contain w-24 h-24 md:w-28 md:h-28 rounded-2xl p-3", // Ensures fit, white background, and padding
     },
     {
@@ -464,7 +464,7 @@ function getRoles(): Role[] {
         "Elevated SEO with targeted keywords and on-page optimizations, increasing organic traffic by 25%",
       ],
       tech: ["React", "Bootstrap", "Figma", "NodeJS", "ExpressJS", "MongoDB", "Firebase", "SQL"],
-      img: "./pitchkrafts.png",
+      img: "/pitchkrafts.png",
     },
   ];
 }
