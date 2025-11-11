@@ -781,6 +781,7 @@ function ContactForm() {
         setTimeout(() => setStatus('idle'), 3000);
       } else {
         // Fallback: Use mailto if EmailJS not configured
+        console.warn('EmailJS not configured. Using mailto fallback. To enable email sending, configure EmailJS environment variables.');
         const mailtoLink = `mailto:hrahman@ucdavis.edu?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
         window.location.href = mailtoLink;
         setStatus('success');
@@ -865,7 +866,7 @@ function ContactForm() {
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="w-full px-6 py-4 rounded-xl bg-[var(--brand-blue)] text-white font-medium hover:bg-[var(--brand-blue-600)] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg shadow-[var(--brand-blue)]/20 hover:shadow-[#6A6AFF]/30 flex items-center justify-center gap-2"
+          className="w-full px-6 py-4 rounded-xl !bg-[var(--brand-blue)] text-white font-medium hover:!bg-[var(--brand-blue-600)] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg shadow-[var(--brand-blue)]/20 hover:shadow-[#6A6AFF]/30 flex items-center justify-center gap-2"
         >
           {status === 'sending' ? (
             <>
@@ -886,17 +887,11 @@ function ContactForm() {
               <svg
                 className="w-5 h-5"
                 viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
+                fill="currentColor"
                 aria-hidden="true"
               >
-                {/* Arrow Right (outline) */}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 12h14m-6-6l6 6-6 6"
-                />
+                {/* Paper Airplane / Send Icon */}
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
               </svg>
               Send Message
             </>
