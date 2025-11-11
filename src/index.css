@@ -1,26 +1,5 @@
 :root {
-  /* Font Options - Change the font-family to match the Google Font you selected */
-  /* Option 1: Inter */
-  /* font-family: 'Inter', system-ui, -apple-system, sans-serif; */
-  
-  /* Option 2: Poppins */
-  /* font-family: 'Poppins', system-ui, -apple-system, sans-serif; */
-  
-  /* Option 3: Space Grotesk */
-  /* font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; */
-  
-  /* Option 4: Outfit */
   font-family: 'Outfit', system-ui, -apple-system, sans-serif;
-  
-  /* Option 5: Plus Jakarta Sans */
-  /* font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; */
-  
-  /* Option 6: DM Sans */
-  /* font-family: 'DM Sans', system-ui, -apple-system, sans-serif; */
-  
-  /* Option 7: Manrope */
-  /* font-family: 'Manrope', system-ui, -apple-system, sans-serif; */
-  /*  */
   line-height: 1.5;
   font-weight: 400;
 

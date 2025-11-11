@@ -365,9 +365,16 @@ function Hero() {
                 shadow-[0_0_20px_rgba(255,255,255,0.15),0_0_60px_rgba(255,255,255,0.1)]
                 cursor-pointer">
                 <img
-                  src="/picture.png"
+                  src={import.meta.env.BASE_URL + 'picture.png'}
                   alt="Your portrait"
                   className="w-full h-full object-cover object-bottom"
+                  onError={(e) => {
+                    console.error('Failed to load profile picture:', e);
+                    const target = e.target as HTMLImageElement;
+                    target.style.backgroundColor = 'rgba(255,255,255,0.1)';
+                  }}
+                  onLoad={() => console.log('Profile picture loaded successfully')}
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -393,13 +400,24 @@ function About() {
 
             {/* Organization Images */}
             <div className="mt-8 grid grid-cols-3 sm:grid-cols-6 gap-6 items-center justify-items-center">
-              <img src="/ucdavis.png" alt="UC Davis" className="h-16 sm:h-20 w-auto object-contain" />
-              <img src="/ucdavis-gsm.avif" alt="UC Davis GSM" className="h-16 sm:h-20 w-auto object-contain" />
-              <img src="/herd-lab.png" alt="HERD Lab" className="h-16 sm:h-20 w-auto object-contain" />
-              <img src="/expolab.png" alt="ExpoLab" className="h-16 sm:h-20 w-auto object-contain" />
-              <img src="/UBS-logo.png" alt="UBS" className="h-16 sm:h-20 w-auto object-contain" />
-              <img src="/vit.png" alt="VIT Vellore" className="h-16 sm:h-20 w-auto object-contain" />
-
+              <div className="bg-white rounded-lg p-3 flex items-center justify-center h-20 sm:h-24 w-full">
+                <img src="/ucdavis.png" alt="UC Davis" className="h-16 sm:h-20 w-auto object-contain" />
+              </div>
+              <div className="bg-white rounded-lg p-3 flex items-center justify-center h-20 sm:h-24 w-full">
+                <img src="/ucdavis-gsm.avif" alt="UC Davis GSM" className="h-16 sm:h-20 w-auto object-contain" />
+              </div>
+              <div className="bg-white rounded-lg p-3 flex items-center justify-center h-20 sm:h-24 w-full">
+                <img src="/herd-lab.png" alt="HERD Lab" className="h-16 sm:h-20 w-auto object-contain" />
+              </div>
+              <div className="bg-white rounded-lg p-3 flex items-center justify-center h-20 sm:h-24 w-full">
+                <img src="/expo-lab.png" alt="ExpoLab" className="h-16 sm:h-20 w-auto object-contain" />
+              </div>
+              <div className="bg-white rounded-lg p-3 flex items-center justify-center h-20 sm:h-24 w-full">
+                <img src="/UBS-logo.png" alt="UBS" className="h-16 sm:h-20 w-auto object-contain" />
+              </div>
+              <div className="bg-white rounded-lg p-3 flex items-center justify-center h-20 sm:h-24 w-full">
+                <img src="/vit.png" alt="VIT Vellore" className="h-16 sm:h-20 w-auto object-contain" />
+              </div>
             </div>
           </Card>
         </Reveal>
@@ -1160,9 +1178,9 @@ function Navbar() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
           )}
         </button>
       </div>
