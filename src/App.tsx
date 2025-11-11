@@ -275,7 +275,7 @@ function Hero() {
                 rounded-full overflow-hidden
                 border-4 border-white/90 ring-1 ring-white/20
                 shadow-2xl hover:ring-[var(--brand-blue)]/30 transition-all duration-500 hover:scale-105">
-                <img src="./picture.png" alt="Your portrait" className="w-full h-full object-cover object-bottom" />
+                <img src="/picture.png" alt="Your portrait" className="w-full h-full object-cover object-bottom" />
               </div>
             </div>
           </Reveal>
@@ -402,7 +402,7 @@ function getProjects(): Project[] {
       blurb: "MERN + ML platform for expense tracking, savings forecasting, and ML‑driven portfolio plans. Attention‑LSTM + Markowitz; +18% Sharpe uplift; 500+ users.",
       links: [{ label: "Demo", href: "https://your-demo-link" }, { label: "Code", href: "https://github.com/your-handle/finsight" }],
       tech: ["React", "TypeScript", "Node", "FastAPI", "PostgreSQL", "Azure"],
-      img: "./icon.png",
+      img: "/icon.png",
     },
     {
       title: "EventFlare — Event Engagement & Management Platform",
