@@ -394,10 +394,59 @@ function About() {
         <Reveal>
           <Card className="max-w-6xl mx-auto bg-white/10 border border-white/20">
             <div className="text-white/80 dark:text-white/75 leading-7 text-base md:text-lg">
-              <p>I'm currently pursuing Master's in Computer Science at the University of California, Davis (GPA: 3.9), focusing on building scalable, secure, AI-driven full-stack products. I also hold a Bachelor's in Computer Science from VIT Vellore, India (CGPA: 9.34). My experience spans three years as a Software Engineer at UBS, two internships (UBS and PitchKrafts), and my current roles as a Teaching Assistant at UC Davis’s Graduate School of Management and a researcher at the HERD Lab and ExpoLab. I specialize in Algorithms, Software Engineering, Full-Stack Development, System Design, and Machine Learning.</p>
-              <p className="mt-6">I've been recognized for innovation, collaboration, and leadership at UBS through JOSH and CSR initiatives, led numerous campus marketing initiatives, and received media recognisiton for ed-tech work at VIT Vellore. When I'm not working, you'll find me volunteering with NGOs, exploring new places, and binge-watching shows.</p>
+              <p>I'm currently pursuing <a href="https://www.linkedin.com/in/haseebshaik00/overlay/1759710762723/single-media-viewer/?type=DOCUMENT&profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-600 font-medium">Master's in Computer Science (GPA: 3.9) </a> at the University of California, Davis, focusing on building scalable, secure, AI-driven full-stack products. I also hold a <a href="https://www.linkedin.com/in/haseebshaik00/overlay/education/584866014/multiple-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns&treasuryMediaId=1727937170325" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-600 font-medium">Bachelor's in Computer Science (CGPA: 9.34)</a> from VIT Vellore, India. My experience spans three years as a <a 
+                  href="#experience"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const targetElement = document.getElementById('experience');
+                    if (targetElement) {
+                      const offsetTop = targetElement.offsetTop - 60;
+                      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                      setTimeout(() => window.history.replaceState(null, '', window.location.pathname), 100);
+                    }
+                  }}
+                  className="text-blue-400 underline hover:text-blue-600 font-medium cursor-pointer"
+                >Software Engineer at UBS</a>, two internships (UBS and PitchKrafts), and my current roles as a <a 
+                  href="#experience"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const targetElement = document.getElementById('experience');
+                    if (targetElement) {
+                      const offsetTop = targetElement.offsetTop - 60;
+                      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                      setTimeout(() => window.history.replaceState(null, '', window.location.pathname), 100);
+                    }
+                  }}
+                  className="text-blue-400 underline hover:text-blue-600 font-medium cursor-pointer"
+                >Teaching Assistant</a> at UC Davis's Graduate School of Management and a <a 
+                  href="#experience"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const targetElement = document.getElementById('experience');
+                    if (targetElement) {
+                      const offsetTop = targetElement.offsetTop - 60;
+                      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                      setTimeout(() => window.history.replaceState(null, '', window.location.pathname), 100);
+                    }
+                  }}
+                  className="text-blue-400 underline hover:text-blue-600 font-medium cursor-pointer"
+                >Researcher</a> at the HERD Lab and ExpoLab. I specialize in Algorithms, Software Engineering, Full-Stack Development, System Design, and Machine Learning.</p>
+              <p className="mt-6">
+                I've been recognized for innovation, collaboration, and leadership at UBS through <a 
+                  href="#certs"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const targetElement = document.getElementById('certs');
+                    if (targetElement) {
+                      const offsetTop = targetElement.offsetTop - 60;
+                      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                      setTimeout(() => window.history.replaceState(null, '', window.location.pathname), 100);
+                    }
+                  }}
+                  className="text-blue-400 underline hover:text-blue-600 font-medium cursor-pointer"
+                >JOSH and CSR initiatives</a>, led numerous campus marketing initiatives, and received media recognition for ed-tech work at VIT Vellore. When I'm not working, you'll find me volunteering with NGOs, exploring new places, and binge-watching shows.
+              </p>
             </div>
-
             {/* Organization Images */}
             <div className="mt-8 grid grid-cols-3 sm:grid-cols-6 gap-6 items-center justify-items-center">
               <div className="bg-white rounded-lg p-3 flex items-center justify-center h-20 sm:h-24 w-full">
@@ -541,7 +590,7 @@ function Experience() {
   return (
     <section id="experience" className="pt-16 sm:pt-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
-        <SectionTitle kicker="" title="Experience" />
+        <SectionTitle kicker="" title="Work Experience" />
         <div className="grid grid-cols-1 gap-6">{roles.map(renderRole)}</div>
       </div>
     </section>
@@ -700,6 +749,7 @@ function Skills() {
 
 function getPosts() {
   return [
+    { title: "DSA Prep Sheet", href: "https://prep-dsa.netlify.app/", img: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2069" },
     { title: "Coincensus: Split Bills and Track Balances Powered by ResilientDB", href: "https://medium.com/@haseebshaik00/coincensus-split-bills-and-track-balances-powered-by-resilientdb-1ec46253312a", img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*j7LPyKLoHwY-u9iHAuyhdA.png" },
     { title: "Visual Modeling Techniques in Software and Data Engineering", href: "https://medium.com/@haseebshaik00/visual-modeling-techniques-in-software-and-data-engineering-b3c88bde223f", img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/0*FjIabpj8LksHeQxn" },
     { title: "Do You Really Know Agile?", href: "https://medium.com/@haseebshaik00/do-you-really-know-agile-99a9d1d630c7", img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/0*kiDbSMIeETIgiyiP" },
