@@ -14,7 +14,7 @@ declare global {
 interface SectionTitleProps { kicker?: string; title: string; subtitle?: string; }
 interface SocialIconProps { label: string; href: string; children: React.ReactNode; }
 interface NavLinkProps { href: string; children: React.ReactNode; }
-interface Role { company: string; role: string; period: string; location: string; points: string[]; tech: string[]; img: string; }
+interface Role { company: string; role: string; period: string; location: string; points: string[]; tech: string[]; img: string; imgClassName?: string; }
 interface Project { title: string; blurb: string; links: { label: string; href: string }[]; tech: string[]; img: string; }
 interface Cert { name: string; org: string; year: string; href?: string }
 
@@ -253,12 +253,12 @@ function HandshakeIcon() {
 
 function NavLink(props: NavLinkProps) {
   const { href, children } = props;
-  
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const targetId = href.replace('#', '');
     const targetElement = document.getElementById(targetId);
-    
+
     if (targetElement) {
       // Reduced offset for less space at top
       const offsetTop = targetElement.offsetTop - 0;
@@ -266,14 +266,14 @@ function NavLink(props: NavLinkProps) {
         top: offsetTop,
         behavior: 'smooth'
       });
-      
+
       // Remove hash from URL after scrolling
       setTimeout(() => {
         window.history.replaceState(null, '', window.location.pathname);
       }, 100);
     }
   };
-  
+
   return (
     <a href={href} onClick={handleClick} className="text-sm text-white/70 hover:text-white transition-colors">
       {children}
@@ -331,8 +331,8 @@ function Hero() {
                 <a href={import.meta.env.BASE_URL + 'resume.pdf'} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-2 rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium border-2 border-white/20 text-white/90 hover:border-white/40 hover:text-white transition-all backdrop-blur-sm hover:scale-105 active:scale-95">
                   <DownloadIcon /> <b>Download Resume</b>
                 </a>
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   onClick={(e) => {
                     e.preventDefault();
                     const targetElement = document.getElementById('contact');
@@ -364,10 +364,10 @@ function Hero() {
                 shadow-2xl 
                 shadow-[0_0_20px_rgba(255,255,255,0.15),0_0_60px_rgba(255,255,255,0.1)]
                 cursor-pointer">
-                <img 
-                  src="/picture.png" 
-                  alt="Your portrait" 
-                  className="w-full h-full object-cover object-bottom" 
+                <img
+                  src="/picture.png"
+                  alt="Your portrait"
+                  className="w-full h-full object-cover object-bottom"
                 />
               </div>
             </div>
@@ -390,7 +390,7 @@ function About() {
               <p>I'm currently pursuing Master's in Computer Science at the University of California, Davis (GPA: 3.9), focusing on building scalable, secure, AI-driven full-stack products. I also hold a Bachelor's in Computer Science from VIT Vellore, India (CGPA: 9.34). My experience spans three years as a Software Engineer at UBS, two internships (UBS and PitchKrafts), and my current roles as a Teaching Assistant at UC Davis’s Graduate School of Management and a researcher at the HERD Lab and ExpoLab. I specialize in Algorithms, Software Engineering, Full-Stack Development, System Design, and Machine Learning.</p>
               <p className="mt-6">I've been recognized for innovation, collaboration, and leadership at UBS through JOSH and CSR initiatives, led numerous campus marketing initiatives, and received media recognisiton for ed-tech work at VIT Vellore. When I'm not working, you'll find me volunteering with NGOs, exploring new places, and binge-watching shows.</p>
             </div>
-            
+
             {/* Organization Images */}
             <div className="mt-8 grid grid-cols-3 sm:grid-cols-6 gap-6 items-center justify-items-center">
               <img src="/ucdavis.png" alt="UC Davis" className="h-16 sm:h-20 w-auto object-contain" />
@@ -399,7 +399,7 @@ function About() {
               <img src="/expolab.png" alt="ExpoLab" className="h-16 sm:h-20 w-auto object-contain" />
               <img src="/UBS-logo.png" alt="UBS" className="h-16 sm:h-20 w-auto object-contain" />
               <img src="/vit.png" alt="VIT Vellore" className="h-16 sm:h-20 w-auto object-contain" />
-              
+
             </div>
           </Card>
         </Reveal>
@@ -412,15 +412,15 @@ function getRoles(): Role[] {
   return [
     {
       company: "University of California, Davis",
-      role: "MSCS Grad",
-      period: "Jul 2022 – Sep 2024",
+      role: "MSCS Graduate Student, Teaching Assistant and Researcher",
+      period: "Jan 2025 – Present",
       location: "Davis, CA",
       points: [
-        "Delivered 40+ integration interfaces; re‑engineered 550+ processes; improved TAT by 80%.",
-        "Cut platform costs by 80% migrating to Azure; built reliable data pipelines and APIs.",
-        "Owned production reliability: on‑call, performance profiling, code reviews, and CI/CD.",
+        "Building scalable, secure, AI-driven full-stack products. Also, scaling FinSight on ResilientDB at ExpoLab by integrating a bill-splitting module that enables transparent, auditable transactions between individuals",
+        "Teaching AI-integrated data analytics (Excel, SQL, Tableau, Power BI, Access, Alteryx) to a cohort of 46 students; Designing accounting & analytics coursework with an emphasis on ethical AI",
+        "Developing iRRd data pipelines at the HERD Lab in collaboration with NYU Global TIES for Children; introduced batched execution saving 24+ hours per execution and built ECG/EDA compliant MIRAGE mapping apps",
       ],
-      tech: ["React", "JavaScript/TypeScript", "SpringBoot", "JEST/JUnit","Azure", "Docker", "Kubernetes", "SQL"],
+      tech: ["Software Engineering", "Distributed Systems", "System Design", "Machine Learning", "Data Acquisition","Visual Analytics", "Ethical AI"],
       img: "./ucdavis.png",
     },
     {
@@ -429,36 +429,42 @@ function getRoles(): Role[] {
       period: "Jul 2022 – Sep 2024",
       location: "Pune, India",
       points: [
-        "Delivered 40+ integration interfaces; re‑engineered 550+ processes; improved TAT by 80%.",
-        "Cut platform costs by 80% migrating to Azure; built reliable data pipelines and APIs.",
-        "Owned production reliability: on‑call, performance profiling, code reviews, and CI/CD.",
+        "Redesigned 200+ React/TypeScript UIs curtailing submission time by 4.5 seconds and clicks from 15 to <10",
+        "Re-engineered 550+ processes achieving 60% improvement in turnaround time, reducing 80% operational cost via vendor consolidation & Azure migration",
+        "Built 42+ integration interfaces for Global Wealth Management streamlining client workflows; contributing to $300M+ FY’22–’24 revenue",
+        "Owned end-to-end workflow with 95% defects reduction across 40+ SIT cycles, ensuring production stability",
+        "Recognised for exceptional performance and leadership in JOSH and CSR initiatives"
       ],
-      tech: ["React", "JavaScript/TypeScript", "SpringBoot", "JEST/JUnit","Azure", "Docker", "Kubernetes", "SQL"],
+      tech: ["React", "JavaScript/TypeScript", "SpringBoot", "JEST/JUnit", "Azure", "Docker", "Kubernetes", "SQL"],
       img: "./UBS-logo.png",
+      imgClassName: "bg-white object-contain w-24 h-24 md:w-28 md:h-28 rounded-2xl p-3",
     },
     {
-      company: "UC Davis — HERD Lab",
-      role: "Graduate Student Researcher (GSR)",
-      period: "2025 — Present",
-      location: "Davis, CA",
+      company: "UBS",
+      role: "Software Engineer Intern",
+      period: "Jan 2022 – Jun 2022",
+      location: "Pune, India",
       points: [
-        "Built ECG/EDA processing and QC pipelines for iRRRd Study (NYU Global TIES).",
-        "Created reproducible data flows and dashboards for physiological analytics.",
+        "Re-engineered SLP into multi-tier microservices; proactively troubleshot issues to cut the defect ratio by 0.4 and improve code quality by 92%",
+        "Built 25+ modular React/TS components (extending Broadridge’s UI framework), boosting developer productivity and saving 500+ engineering hours",
+        "Shipped 6 CI/CD-compliant production releases with Docker and Kubernetes; managed production hotfixes across 12+ Agile sprints",
       ],
-      tech: ["R", "Python", "tidyverse", "Dashboards"],
-      img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop",
+      tech: ["React", "JavaScript/TypeScript", "Material UI", "Broadridge UI", "SpringBoot", "JEST/JUnit", "Azure", "Docker", "Kubernetes", "SQL"],
+      img: "./UBS-logo.png",
+      imgClassName: "bg-white object-contain w-24 h-24 md:w-28 md:h-28 rounded-2xl p-3", // Ensures fit, white background, and padding
     },
     {
-      company: "UC Davis — GSM",
-      role: "Teaching Assistant (ACC 455/271)",
-      period: "2025 — Present",
-      location: "Davis, CA",
+      company: "PitchKrafts",
+      role: "Software Engineer Intern",
+      period: "Dec 2020 – Feb 2021",
+      location: "Pune, India",
       points: [
-        "Designed AI‑integrated analytics assignments and grading rubrics.",
-        "Taught data visualization and responsible AI usage in business contexts.",
+        "Led end-to-end website build (APIs, integration tests, production rollout) for a pitch-deck platform, growing the client base by 30%",
+        "Designed and shipped 5+ responsive UIs (Figma → React) aligned to brand guidelines and user feedback, boosting engagement by 20%",
+        "Elevated SEO with targeted keywords and on-page optimizations, increasing organic traffic by 25%",
       ],
-      tech: ["Python", "Pandas", "Tableau", "Power BI"],
-      img: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1200&auto=format&fit=crop",
+      tech: ["React", "Bootstrap", "Figma", "NodeJS", "ExpressJS", "MongoDB", "Firebase", "SQL"],
+      img: "./pitchkrafts.png",
     },
   ];
 }
@@ -469,7 +475,14 @@ function Experience() {
   function renderPoint(point: string, idx: number) {
     return (
       <li key={idx} className="flex gap-3 text-sm text-white/75 dark:text-white/70">
-        <span className="mt-1.5 size-1.5 rounded-full bg-[var(--brand-blue)] flex-shrink-0" />
+        <svg
+          className="w-4 h-4 text-[var(--brand-blue)]"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+        </svg>
         <span>{point}</span>
       </li>
     );
@@ -482,11 +495,16 @@ function Experience() {
       <Reveal delay={idx * 80}>
         <Card className="p-4 md:p-5">
           <div className="flex items-start gap-6">
-            <img src={r.img} alt={r.company} className="w-24 h-24 md:w-28 md:h-28 rounded-2xl object-cover ring-1 ring-white/10" />
+            <img src={r.img} alt={r.company} className={r.imgClassName || "w-24 h-24 md:w-28 md:h-28 rounded-2xl object-cover ring-1 ring-white/10"} />
             <div className="flex-1">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
                 <div>
-                  <h3 className="text-lg font-semibold text-white dark:text-white/95">{r.role} · {r.company}</h3>
+                  {(
+                    <div>
+                      <h3 className="text-lg font-semibold text-white dark:text-white/95">{r.role}</h3>
+                      <p className="text-sm font-bold text-white/70 dark:text-white/60 mt-1">{r.company}</p>
+                    </div>
+                  )}
                 </div>
                 <div className="text-sm text-white/60 dark:text-white/50 md:text-right">
                   <div>{r.period}</div>
@@ -866,7 +884,10 @@ function ContactForm() {
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="w-full px-6 py-4 rounded-xl !bg-[var(--brand-blue)] text-white font-medium hover:!bg-[var(--brand-blue-600)] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg shadow-[var(--brand-blue)]/20 hover:shadow-[#6A6AFF]/30 flex items-center justify-center gap-2"
+          className={`w-full px-6 py-4 rounded-xl text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg flex items-center justify-center gap-2 ${status === 'success'
+              ? '!bg-[#22C55E] hover:!bg-[#16A34A] shadow-[#22C55E]/20'
+              : '!bg-[var(--brand-blue)] hover:!bg-[var(--brand-blue-600)] shadow-[var(--brand-blue)]/20 hover:shadow-[#6A6AFF]/30'
+            }`}
         >
           {status === 'sending' ? (
             <>
@@ -1001,10 +1022,10 @@ function Navbar() {
   const handleMobileLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    
+
     const targetId = href.replace('#', '');
     const targetElement = document.getElementById(targetId);
-    
+
     if (targetElement) {
       // Reduced offset for less space at top
       const offsetTop = targetId === 'home' ? 0 : targetElement.offsetTop - 60;
@@ -1012,7 +1033,7 @@ function Navbar() {
         top: offsetTop,
         behavior: 'smooth'
       });
-      
+
       // Remove hash from URL after scrolling
       setTimeout(() => {
         window.history.replaceState(null, '', window.location.pathname);
@@ -1023,8 +1044,8 @@ function Navbar() {
   return (
     <div className={`fixed top-0 inset-x-0 z-50 backdrop-blur-xl supports-[backdrop-filter]:bg-neutral-950/80 border-b transition-all duration-300 ${scrolled ? 'border-white/10 shadow-lg shadow-black/10' : 'border-transparent'} text-white`}>
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16 h-14 sm:h-16 flex items-center justify-between">
-        <a 
-          href="#home" 
+        <a
+          href="#home"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
