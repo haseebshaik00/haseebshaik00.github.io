@@ -335,15 +335,22 @@ function Hero() {
                   href="#contact"
                   onClick={(e) => {
                     e.preventDefault();
-                    const targetElement = document.getElementById('contact');
+                    const targetId = '#contact'.replace('#', '');
+                    const targetElement = document.getElementById(targetId);
                     if (targetElement) {
-                      // Scroll to show contact section and footer
-                      const offsetTop = targetElement.offsetTop - 60;
-                      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-                      setTimeout(() => window.history.replaceState(null, '', window.location.pathname), 100);
+                      // Reduced offset for less space at top
+                      const offsetTop = targetElement.offsetTop - 0;
+                      window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                      });
+                      // Remove hash from URL after scrolling
+                      setTimeout(() => {
+                        window.history.replaceState(null, '', window.location.pathname);
+                      }, 100);
                     }
                   }}
-                  className="inline-flex items-center gap-2 rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium bg-[#22C55E] text-white hover:bg-[#16A34A] transition-all shadow-lg shadow-[#22C55E]/30 hover:scale-105 active:scale-95"
+                  className="inline-flex items-center gap-2 rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium bg-[#22C55E] text-white hover:bg-[#16A34A] transition-all shadow-lg shadow-[#22C55E]/20 hover:scale-105 active:scale-95"
                 >
                   <span className="text-white"><b>Contact me!</b></span> <ExternalIcon />
                 </a>
@@ -1095,10 +1102,21 @@ function Contact() {
     <section id="contact" className="pt-16 sm:pt-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
         <SectionTitle kicker="" title="Let's Collaborate!" subtitle="" />
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-6 sm:gap-8 mt-8 sm:mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-6 sm:gap-8 mt-20 sm:mt-12">
           <Reveal delay={0}>
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-white/90 mb-6">Contact Information</h3>
+              <ContactInfoCard
+                icon={
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+                    <path d="M17 3a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4h10zm-6 8v5m4-5v5" /> {/* Minimal calendar icon */}
+                    <rect x="3" y="7" width="18" height="14" rx="4" />
+                  </svg>
+                }
+                title="Book an Appointment"
+                content="Schedule a 1:1 on Calendly"
+                href="https://calendly.com/haseebshaik00/30min"
+              />
               <ContactInfoCard
                 icon={<MailIcon />}
                 title="Work Email"
