@@ -38,7 +38,17 @@ jobs:
         run: npm run build
       
       - name: Add .nojekyll file
-        run: touch ./dist/.nojekyll
+        run: |
+          touch ./dist/.nojekyll
+          echo "Created .nojekyll file"
+          ls -la ./dist/.nojekyll
+      
+      - name: Verify build output
+        run: |
+          echo "Build contents:"
+          ls -la ./dist/
+          echo "Assets:"
+          ls -la ./dist/assets/ || echo "No assets folder"
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
