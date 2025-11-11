@@ -253,8 +253,29 @@ function HandshakeIcon() {
 
 function NavLink(props: NavLinkProps) {
   const { href, children } = props;
+  
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      // Reduced offset for less space at top
+      const offsetTop = targetElement.offsetTop - 0;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+      
+      // Remove hash from URL after scrolling
+      setTimeout(() => {
+        window.history.replaceState(null, '', window.location.pathname);
+      }, 100);
+    }
+  };
+  
   return (
-    <a href={href} className="text-sm text-white/70 hover:text-white transition-colors">
+    <a href={href} onClick={handleClick} className="text-sm text-white/70 hover:text-white transition-colors">
       {children}
     </a>
   );
@@ -310,7 +331,20 @@ function Hero() {
                 <a href={import.meta.env.BASE_URL + 'resume.pdf'} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-2 rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium border-2 border-white/20 text-white/90 hover:border-white/40 hover:text-white transition-all backdrop-blur-sm hover:scale-105 active:scale-95">
                   <DownloadIcon /> <b>Download Resume</b>
                 </a>
-                <a href="#contact" className="inline-flex items-center gap-2 rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium bg-[#22C55E] text-white hover:bg-[#16A34A] transition-all shadow-lg shadow-[#22C55E]/30 hover:scale-105 active:scale-95">
+                <a 
+                  href="#contact" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const targetElement = document.getElementById('contact');
+                    if (targetElement) {
+                      // Scroll to show contact section and footer
+                      const offsetTop = targetElement.offsetTop - 60;
+                      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                      setTimeout(() => window.history.replaceState(null, '', window.location.pathname), 100);
+                    }
+                  }}
+                  className="inline-flex items-center gap-2 rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium bg-[#22C55E] text-white hover:bg-[#16A34A] transition-all shadow-lg shadow-[#22C55E]/30 hover:scale-105 active:scale-95"
+                >
                   <span className="text-white"><b>Contact me!</b></span> <ExternalIcon />
                 </a>
               </div>
@@ -351,10 +385,21 @@ function About() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
         <SectionTitle kicker="" title="About Me" subtitle="" />
         <Reveal>
-          <Card className="max-w-4xl mx-auto">
+          <Card className="max-w-6xl mx-auto bg-white/10 border border-white/20">
             <div className="text-white/80 dark:text-white/75 leading-7 text-base md:text-lg">
-              <p>I'm a graduate student in Computer Science at UC Davis ('26) and previously a Software Engineer at UBS (3 years). At UBS, I built production systems used across the bank—shipping 40+ integrations, re‑engineering 550+ business processes, and helping cut vendor costs by 80% while improving reliability.</p>
-              <p className="mt-6">My recent work blends full‑stack engineering with applied ML—Vite/React/TS, Node/FastAPI, PostgreSQL, Azure/Kubernetes. I'm currently scaling FinSight and contributing to HERD Lab research pipelines.</p>
+              <p>I'm currently pursuing Master's in Computer Science at the University of California, Davis (GPA: 3.9), focusing on building scalable, secure, AI-driven full-stack products. I also hold a Bachelor's in Computer Science from VIT Vellore, India (CGPA: 9.34). My experience spans three years as a Software Engineer at UBS, two internships (UBS and PitchKrafts), and my current roles as a Teaching Assistant at UC Davis’s Graduate School of Management and a researcher at the HERD Lab and ExpoLab. I specialize in Algorithms, Software Engineering, Full-Stack Development, System Design, and Machine Learning.</p>
+              <p className="mt-6">I've been recognized for innovation, collaboration, and leadership at UBS through JOSH and CSR initiatives, led numerous campus marketing initiatives, and received media recognisiton for ed-tech work at VIT Vellore. When I'm not working, you'll find me volunteering with NGOs, exploring new places, and binge-watching shows.</p>
+            </div>
+            
+            {/* Organization Images */}
+            <div className="mt-8 grid grid-cols-3 sm:grid-cols-6 gap-6 items-center justify-items-center">
+              <img src="/ucdavis.png" alt="UC Davis" className="h-16 sm:h-20 w-auto object-contain" />
+              <img src="/ucdavis-gsm.avif" alt="UC Davis GSM" className="h-16 sm:h-20 w-auto object-contain" />
+              <img src="/herd-lab.png" alt="HERD Lab" className="h-16 sm:h-20 w-auto object-contain" />
+              <img src="/expolab.png" alt="ExpoLab" className="h-16 sm:h-20 w-auto object-contain" />
+              <img src="/UBS-logo.png" alt="UBS" className="h-16 sm:h-20 w-auto object-contain" />
+              <img src="/vit.png" alt="VIT Vellore" className="h-16 sm:h-20 w-auto object-contain" />
+              
             </div>
           </Card>
         </Reveal>
@@ -376,7 +421,7 @@ function getRoles(): Role[] {
         "Owned production reliability: on‑call, performance profiling, code reviews, and CI/CD.",
       ],
       tech: ["React", "JavaScript/TypeScript", "SpringBoot", "JEST/JUnit","Azure", "Docker", "Kubernetes", "SQL"],
-      img: "https://communicationsguide.ucdavis.edu/sites/g/files/dgvnsk6246/files/styles/sf_landscape_4x3/public/images/marketing_highlight/wordmarks_5.png?h=89d6a65b&itok=LmLXGS4c",
+      img: "./ucdavis.png",
     },
     {
       company: "UBS",
@@ -389,7 +434,7 @@ function getRoles(): Role[] {
         "Owned production reliability: on‑call, performance profiling, code reviews, and CI/CD.",
       ],
       tech: ["React", "JavaScript/TypeScript", "SpringBoot", "JEST/JUnit","Azure", "Docker", "Kubernetes", "SQL"],
-      img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.businesswire.com%2Fnews%2Fhome%2F20250427406336%2Fen%2FUBS-unveils-new-Workplace-Wealth-Solutions-technology-for-global-stock-plan-issuers&psig=AOvVaw2aUYW082NURA6acyrRMpYa&ust=1762913043514000&source=images&cd=vfe&opi=89978449&ved=0CBYQjRxqFwoTCODisf-A6ZADFQAAAAAdAAAAABAE",
+      img: "./UBS-logo.png",
     },
     {
       company: "UC Davis — HERD Lab",
@@ -896,6 +941,7 @@ function Contact() {
                   </svg>
                 }
                 title="Location"
+                href="https://maps.app.goo.gl/nfQHEdRko5vD6gqB8"
                 content="Davis, CA (Open to relocate)"
               />
             </div>
@@ -912,7 +958,7 @@ function Contact() {
 // ------------ Chrome ------------
 function Footer() {
   return (
-    <footer className="pt-12 sm:pt-16 pb-8 sm:pb-10">
+    <footer className="pb-8 sm:pb-10">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
         <div className="flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-xs">
@@ -957,14 +1003,42 @@ function Navbar() {
 
   function renderLink(l: { name: string; href: string }, idx: number) { return <NavLink key={idx} href={l.href}>{l.name}</NavLink>; }
 
-  const handleMobileLinkClick = () => {
+  const handleMobileLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     setMobileMenuOpen(false);
+    
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      // Reduced offset for less space at top
+      const offsetTop = targetId === 'home' ? 0 : targetElement.offsetTop - 60;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+      
+      // Remove hash from URL after scrolling
+      setTimeout(() => {
+        window.history.replaceState(null, '', window.location.pathname);
+      }, 100);
+    }
   };
 
   return (
     <div className={`fixed top-0 inset-x-0 z-50 backdrop-blur-xl supports-[backdrop-filter]:bg-neutral-950/80 border-b transition-all duration-300 ${scrolled ? 'border-white/10 shadow-lg shadow-black/10' : 'border-transparent'} text-white`}>
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16 h-14 sm:h-16 flex items-center justify-between">
-        <a href="#home" className="font-bold tracking-tight text-white hover:text-[var(--brand-blue)] transition-colors text-lg sm:text-xl"><b>Shaik Haseeb Ur Rahman</b></a>
+        <a 
+          href="#home" 
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => window.history.replaceState(null, '', window.location.pathname), 100);
+          }}
+          className="font-bold tracking-tight text-white hover:text-[var(--brand-blue)] transition-colors text-lg sm:text-xl"
+        >
+          <b>Shaik Haseeb Ur Rahman</b>
+        </a>
         <nav className="hidden lg:flex items-center gap-4 xl:gap-6 font-bold">{links.map(renderLink)}</nav>
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -990,7 +1064,7 @@ function Navbar() {
               <a
                 key={idx}
                 href={link.href}
-                onClick={handleMobileLinkClick}
+                onClick={(e) => handleMobileLinkClick(e, link.href)}
                 className="text-sm text-white/70 hover:text-white transition-colors font-medium py-2"
               >
                 {link.name}
