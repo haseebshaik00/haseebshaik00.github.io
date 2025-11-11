@@ -707,7 +707,7 @@ function Blogs() {
   function scrollLeft() { if (trackRef.current) { trackRef.current.scrollBy({ left: -360, behavior: "smooth" }); } }
   function scrollRight() { if (trackRef.current) { trackRef.current.scrollBy({ left: 360, behavior: "smooth" }); } }
 
-  function renderPost(p: { title: string; href: string; date: string; img: string }, idx: number) {
+  function renderPost(p: { title: string; href: string; date?: string; img: string }, idx: number) {
     return (
       <a key={idx} href={p.href} target="_blank" rel="noreferrer noopener" className="min-w-[260px] max-w-[260px] sm:min-w-[280px] sm:max-w-[280px] md:min-w-[320px] md:max-w-[320px] flex-shrink-0 rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden hover:bg-white/10 hover:border-white/20 transition-all text-white/90 dark:text-white/85 group">
         <div className="aspect-video w-full overflow-hidden">
@@ -718,7 +718,7 @@ function Blogs() {
             <h4 className="text-sm font-medium pr-4">{p.title}</h4>
             <ArrowRightIcon />
           </div>
-          <p className="text-xs text-white/50 dark:text-white/45 mt-2">{p.date}</p>
+          {p.date && <p className="text-xs text-white/50 dark:text-white/45 mt-2">{p.date}</p>}
         </div>
       </a>
     );
