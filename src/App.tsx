@@ -54,16 +54,16 @@ function LightningIcon() {
   return (
     <div className="relative">
       {/* Glow effect */}
-      <div className="absolute inset-0 blur-xl rounded-full animate-pulse" style={{ backgroundColor: 'rgba(255, 211, 79, 0.35)' }} />
+      <div className="absolute inset-0 blur-xl rounded-full animate-pulse" style={{ backgroundColor: 'rgba(36, 93, 209, 0.35)' }} />
       {/* Lightning bolt */}
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-14 h-14 relative z-10 drop-shadow-[0_0_22px_rgba(255,211,79,0.45)]">
-        <path d="M13 2L3 14h6l-1 8 10-12h-6l1-8z" fill="var(--accent-yellow)" />
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-14 h-14 relative z-10 drop-shadow-[0_0_22px_rgba(36,93,209,0.45)]">
+        <path d="M13 2L3 14h6l-1 8 10-12h-6l1-8z" fill="var(--brand-blue)" />
         <path d="M13 2L3 14h6l-1 8 10-12h-6l1-8z" fill="url(#lightningGradient)" opacity="0.95" />
         <defs>
           <linearGradient id="lightningGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#ffe27b" />
-            <stop offset="45%" stopColor="var(--accent-yellow)" />
-            <stop offset="100%" stopColor="var(--accent-yellow-600)" />
+            <stop offset="0%" stopColor="var(--brand-blue-400)" />
+            <stop offset="45%" stopColor="var(--brand-blue)" />
+            <stop offset="100%" stopColor="var(--brand-blue-600)" />
           </linearGradient>
         </defs>
       </svg>
@@ -225,6 +225,32 @@ function LinkedInIcon() {
   );
 }
 
+function MediumIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+      <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+    </svg>
+  );
+}
+
+function LeetcodeIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+      <path d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662l-4.332-4.363c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.111-.702 1.824-.702s1.357.235 1.823.702l2.697 2.606c.514.515 1.365.497 1.9-.038.535-.536.553-1.387.038-1.901l-2.609-2.636a5.055 5.055 0 00-2.445-1.337l2.467-2.503c.516-.514.498-1.365-.037-1.9-.535-.535-1.386-.553-1.899-.038l-10.1 10.101c-.981.982-1.494 2.337-1.494 3.835 0 1.498.513 2.895 1.494 3.875l7.761 7.762c.983.983 2.337 1.494 3.834 1.494s2.853-.512 3.835-1.494l2.609-2.637c.514-.514.496-1.365-.039-1.9-.535-.535-1.387-.553-1.9-.038z" />
+    </svg>
+  );
+}
+
+function HandshakeIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+      <path d="M11 12h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 14" />
+      <path d="M7 18h1a2 2 0 0 0 2-2v-4.5c0-.8.7-1.5 1.5-1.5h1c.8 0 1.5.7 1.5 1.5V18M7 18H5a2 2 0 0 1-2-2v-4c0-.6.4-1 1-1h2M7 18l-2-2M13 12h2a2 2 0 1 1 0 4h-3c-.6 0-1.1-.2-1.4-.6L3 10" />
+      <path d="M17 6h-1a2 2 0 0 0-2 2v4.5c0 .8-.7 1.5-1.5 1.5h-1c-.8 0-1.5-.7-1.5-1.5V6M17 6h2a2 2 0 0 1 2 2v4c0 .6-.4 1-1 1h-2M17 6l2 2" />
+    </svg>
+  );
+}
+
 function NavLink(props: NavLinkProps) {
   const { href, children } = props;
   return (
@@ -240,9 +266,9 @@ function Hero() {
     <section
       id="home"
       className="
-    pt-20 sm:pt-24 md:pt-28
     min-h-[calc(100vh-56px)] sm:min-h-[calc(100vh-64px)]
-    flex items-center
+    flex items-center justify-center
+    pt-32 sm:pt-40 md:pt-48
     pb-12 sm:pb-16
   "
     >
@@ -251,21 +277,48 @@ function Hero() {
           <Reveal>
             <div>
               <p className="tracking-widest text-[10px] sm:text-xs md:text-[12px] text-neutral-400 dark:text-neutral-500"><b>Open to Fulltime Software Engineer Roles and Summer'26 SDE Internships!</b></p>
-              <h1 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold  text-white dark:text-white/95">Hey, I'm Haseeb!</h1>
-              <p className="mt-3 sm:mt-4 text-base sm:text-lg text-white/80 dark:text-white/70 leading-relaxed">Ex-SWE @ UBS (3 years) · MSCS @ UC Davis<br /> Full-Stack Software Engineer <br />I build scalable AI-driven data-to-decision products with robust data models, polished UIs, and secure backends with measurable performance gains.</p>
+              <h1 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white dark:text-white/95">Hey, I'm Haseeb!</h1>
+
+              {/* Professional Title & Roles */}
+              <div className="mt-4 sm:mt-5 space-y-2">
+                <p className="text-base sm:text-lg font-semibold text-white/90 dark:text-white/85">
+                  Full-Stack Software Engineer
+                </p>
+                <div className="flex flex-wrap items-center gap-x-2 sm:gap-x-3 gap-y-1 text-xs sm:text-sm text-white/70 dark:text-white/65">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-blue)]"></span>
+                    Ex-SWE @ UBS (3 years)
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-blue)]"></span>
+                    MSCS @ UC Davis
+                  </span>
+                  <span className="w-full"></span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-blue)]"></span>
+                    GSM TA and Researcher @ HERD Lab & ExpoLab, UC Davis
+                  </span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base text-white/75 dark:text-white/70 leading-relaxed max-w-xl">
+                I build scalable AI-driven data to decision products with robust data models, polished UIs, and improve backends with measurable performance gains.
+              </p>
 
               <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
-                <a href="#projects" className="inline-flex items-center gap-2 rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium bg-[#2CCB63] text-white hover:bg-[#25B158] transition-all shadow-lg shadow-[#2CCB63]/25 hover:scale-105 active:scale-95">
-                  View Projects <ExternalIcon />
-                </a>
                 <a href={import.meta.env.BASE_URL + 'resume.pdf'} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-2 rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium border-2 border-white/20 text-white/90 hover:border-white/40 hover:text-white transition-all backdrop-blur-sm hover:scale-105 active:scale-95">
-                  <DownloadIcon /> Download Résumé
+                  <DownloadIcon /> <b>Download Resume</b>
+                </a>
+                <a href="#contact" className="inline-flex items-center gap-2 rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium bg-[#22C55E] text-white hover:bg-[#16A34A] transition-all shadow-lg shadow-[#22C55E]/30 hover:scale-105 active:scale-95">
+                  <span className="text-white"><b>Contact me!</b></span> <ExternalIcon />
                 </a>
               </div>
-              <div className="mt-4 sm:mt-5 flex items-center gap-2 sm:gap-3">
-                <SocialIcon label="GitHub" href="https://github.com/your-handle"><GithubIcon /></SocialIcon>
-                <SocialIcon label="LinkedIn" href="https://linkedin.com/in/your-handle"><LinkedInIcon /></SocialIcon>
-                <SocialIcon label="Email" href="mailto:your.email@ucdavis.edu"><MailIcon /></SocialIcon>
+              <div className="mt-4 sm:mt-5 flex flex-wrap items-center gap-2 sm:gap-3">
+                <SocialIcon label="Email" href="mailto:hrahman@ucdavis.edu"><MailIcon /></SocialIcon>
+                <SocialIcon label="LinkedIn" href="https://linkedin.com/in/haseebshaik00"><LinkedInIcon /></SocialIcon>
+                <SocialIcon label="GitHub" href="https://github.com/haseebshaik00"><GithubIcon /></SocialIcon>
+
               </div>
             </div>
           </Reveal>
@@ -274,8 +327,14 @@ function Hero() {
               <div className="w-72 md:w-80 lg:w-[26rem] xl:w-[28rem] aspect-square
                 rounded-full overflow-hidden
                 border-4 border-white/90 ring-1 ring-white/20
-                shadow-2xl hover:ring-[var(--brand-blue)]/30 transition-all duration-500 hover:scale-105">
-                <img src="/picture.png" alt="Your portrait" className="w-full h-full object-cover object-bottom" />
+                shadow-2xl 
+                shadow-[0_0_20px_rgba(255,255,255,0.15),0_0_60px_rgba(255,255,255,0.1)]
+                cursor-pointer">
+                <img 
+                  src="/picture.png" 
+                  alt="Your portrait" 
+                  className="w-full h-full object-cover object-bottom" 
+                />
               </div>
             </div>
           </Reveal>
@@ -290,7 +349,7 @@ function About() {
   return (
     <section id="about" className="pt-16 sm:pt-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
-        <SectionTitle kicker="About" title="Builder with a product mindset" subtitle="I design and ship reliable systems that solve real user problems—end to end." />
+        <SectionTitle kicker="" title="About Me" subtitle="" />
         <Reveal>
           <Card className="max-w-4xl mx-auto">
             <div className="text-white/80 dark:text-white/75 leading-7 text-base md:text-lg">
@@ -307,17 +366,30 @@ function About() {
 function getRoles(): Role[] {
   return [
     {
-      company: "UBS",
-      role: "Software Engineer",
+      company: "University of California, Davis",
+      role: "MSCS Grad",
       period: "Jul 2022 – Sep 2024",
-      location: "Pune/Hyderabad, IN",
+      location: "Davis, CA",
       points: [
         "Delivered 40+ integration interfaces; re‑engineered 550+ processes; improved TAT by 80%.",
         "Cut platform costs by 80% migrating to Azure; built reliable data pipelines and APIs.",
         "Owned production reliability: on‑call, performance profiling, code reviews, and CI/CD.",
       ],
-      tech: ["Java", "C++", "Spring Boot", "Azure", "Kubernetes", "PostgreSQL"],
-      img: "https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1200&auto=format&fit=crop",
+      tech: ["React", "JavaScript/TypeScript", "SpringBoot", "JEST/JUnit","Azure", "Docker", "Kubernetes", "SQL"],
+      img: "https://communicationsguide.ucdavis.edu/sites/g/files/dgvnsk6246/files/styles/sf_landscape_4x3/public/images/marketing_highlight/wordmarks_5.png?h=89d6a65b&itok=LmLXGS4c",
+    },
+    {
+      company: "UBS",
+      role: "Software Engineer",
+      period: "Jul 2022 – Sep 2024",
+      location: "Pune, India",
+      points: [
+        "Delivered 40+ integration interfaces; re‑engineered 550+ processes; improved TAT by 80%.",
+        "Cut platform costs by 80% migrating to Azure; built reliable data pipelines and APIs.",
+        "Owned production reliability: on‑call, performance profiling, code reviews, and CI/CD.",
+      ],
+      tech: ["React", "JavaScript/TypeScript", "SpringBoot", "JEST/JUnit","Azure", "Docker", "Kubernetes", "SQL"],
+      img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.businesswire.com%2Fnews%2Fhome%2F20250427406336%2Fen%2FUBS-unveils-new-Workplace-Wealth-Solutions-technology-for-global-stock-plan-issuers&psig=AOvVaw2aUYW082NURA6acyrRMpYa&ust=1762913043514000&source=images&cd=vfe&opi=89978449&ved=0CBYQjRxqFwoTCODisf-A6ZADFQAAAAAdAAAAABAE",
     },
     {
       company: "UC Davis — HERD Lab",
@@ -388,7 +460,7 @@ function Experience() {
   return (
     <section id="experience" className="pt-16 sm:pt-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
-        <SectionTitle kicker="Experience" title="Impact, not just titles" />
+        <SectionTitle kicker="" title="Experience" />
         <div className="grid grid-cols-1 gap-6">{roles.map(renderRole)}</div>
       </div>
     </section>
@@ -454,7 +526,7 @@ function Projects() {
   return (
     <section id="projects" className="pt-16 sm:pt-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
-        <SectionTitle kicker="Projects" title="Selected work" />
+        <SectionTitle kicker="" title="Projects" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">{items.map(renderItem)}</div>
       </div>
     </section>
@@ -486,7 +558,7 @@ function Skills() {
   return (
     <section id="skills" className="pt-16 sm:pt-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
-        <SectionTitle kicker="Skills" title="Tools I ship with" />
+        <SectionTitle kicker="" title="Skills" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{stacks.map(renderGroup)}</div>
       </div>
     </section>
@@ -540,7 +612,7 @@ function Blogs() {
   return (
     <section id="blogs" className="pt-16 sm:pt-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
-        <SectionTitle kicker="Writing" title="Notes & case studies" subtitle="Scroll through posts — more coming soon." />
+        <SectionTitle kicker="" title="Blogs & Articles" subtitle="" />
         <div className="flex items-center justify-center mb-4 sm:mb-6 gap-2 sm:gap-3">
           <button onClick={scrollLeft} className="rounded-full border-2 border-white/20 bg-white/5 backdrop-blur-sm p-2.5 sm:p-3 text-white/80 hover:bg-white/10 hover:border-white/30 hover:text-white transition-all shadow-lg hover:scale-110 active:scale-95">
             <ArrowLeftIcon />
@@ -587,7 +659,7 @@ function Certifications() {
   return (
     <section id="certs" className="pt-16 sm:pt-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
-        <SectionTitle kicker="Certifications" title="Proof of skills" />
+        <SectionTitle kicker="" title="Beyond Code!" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">{certs.map(renderCert)}</div>
       </div>
     </section>
@@ -799,20 +871,20 @@ function Contact() {
   return (
     <section id="contact" className="pt-16 sm:pt-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
-        <SectionTitle kicker="Contact" title="Get In Touch" subtitle="Let's build something useful together." />
+        <SectionTitle kicker="" title="Let's Collaborate!" subtitle="" />
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-6 sm:gap-8 mt-8 sm:mt-12">
           <Reveal delay={0}>
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-white/90 mb-6">Contact Information</h3>
               <ContactInfoCard
                 icon={<MailIcon />}
-                title="Email"
+                title="Work Email"
                 content="hrahman@ucdavis.edu"
                 href="mailto:hrahman@ucdavis.edu"
               />
               <ContactInfoCard
                 icon={<MailIcon />}
-                title="Email"
+                title="Personal Email"
                 content="haseebshaik00@gmail.com"
                 href="mailto:haseebshaik00@gmail.com"
               />
@@ -843,11 +915,18 @@ function Footer() {
     <footer className="pt-12 sm:pt-16 pb-8 sm:pb-10">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
         <div className="flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/50 dark:text-white/45">© {new Date().getFullYear()} Shaik Haseeb Ur Rahman · Built with Vite, TS & Tailwind</p>
+          <p className="text-xs">
+            <a href="https://github.com/haseebshaik00/haseebshaik00.github.io" target="_blank" rel="noreferrer noopener" className="text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] hover:underline transition-colors">
+              © {new Date().getFullYear()}, Shaik Haseeb Ur Rahman. All rights reserved.
+            </a>
+          </p>
           <div className="flex items-center gap-3">
-            <SocialIcon label="GitHub" href="https://github.com/your-handle"><GithubIcon /></SocialIcon>
-            <SocialIcon label="LinkedIn" href="https://linkedin.com/in/your-handle"><LinkedInIcon /></SocialIcon>
             <SocialIcon label="Email" href="mailto:hrahman@ucdavis.edu"><MailIcon /></SocialIcon>
+            <SocialIcon label="LinkedIn" href="https://linkedin.com/in/haseebshaik00"><LinkedInIcon /></SocialIcon>
+            <SocialIcon label="GitHub" href="https://github.com/haseebshaik00"><GithubIcon /></SocialIcon>
+            <SocialIcon label="Handshake" href="https://ucdavis.joinhandshake.com/profiles/haseebshaik00"><HandshakeIcon /></SocialIcon>
+            <SocialIcon label="Medium" href="https://medium.com/@haseebshaik00"><MediumIcon /></SocialIcon>
+            <SocialIcon label="Leetcode" href="https://leetcode.com/u/haseebshaik00/"><LeetcodeIcon /></SocialIcon>
           </div>
         </div>
       </div>
@@ -857,13 +936,14 @@ function Footer() {
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const links = useMemo(function () {
     return [
       { name: "About", href: "#about" },
       { name: "Experience", href: "#experience" },
       { name: "Projects", href: "#projects" },
       { name: "Skills", href: "#skills" },
-      { name: "Certificates", href: "#certs" },
+      { name: "Leadership", href: "#certs" },
       { name: "Blogs", href: "#blogs" },
       { name: "Contact", href: "#contact" },
     ];
@@ -877,17 +957,48 @@ function Navbar() {
 
   function renderLink(l: { name: string; href: string }, idx: number) { return <NavLink key={idx} href={l.href}>{l.name}</NavLink>; }
 
+  const handleMobileLinkClick = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <div className={`fixed top-0 inset-x-0 z-50 backdrop-blur-xl supports-[backdrop-filter]:bg-neutral-950/80 border-b transition-all duration-300 ${scrolled ? 'border-white/10 shadow-lg shadow-black/10' : 'border-transparent'} text-white`}>
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16 h-14 sm:h-16 flex items-center justify-between">
         <a href="#home" className="font-bold tracking-tight text-white hover:text-[var(--brand-blue)] transition-colors text-lg sm:text-xl"><b>Shaik Haseeb Ur Rahman</b></a>
         <nav className="hidden lg:flex items-center gap-4 xl:gap-6 font-bold">{links.map(renderLink)}</nav>
-        <button className="md:hidden text-white/80 hover:text-white">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden text-white/80 hover:text-white transition-colors"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
         </button>
       </div>
+      {/* Mobile Menu Dropdown */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-white/10 bg-neutral-950/95 backdrop-blur-xl">
+          <nav className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16 py-4 flex flex-col gap-4">
+            {links.map((link, idx) => (
+              <a
+                key={idx}
+                href={link.href}
+                onClick={handleMobileLinkClick}
+                className="text-sm text-white/70 hover:text-white transition-colors font-medium py-2"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
     </div>
   );
 }
