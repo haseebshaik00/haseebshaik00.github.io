@@ -14,9 +14,9 @@ declare global {
 interface SectionTitleProps { kicker?: string; title: string; subtitle?: string; }
 interface SocialIconProps { label: string; href: string; children: React.ReactNode; }
 interface NavLinkProps { href: string; children: React.ReactNode; }
-interface Role { company: string; role: string; period: string; location: string; points: string[]; tech: string[]; img: string; imgClassName?: string; }
+interface Role { company: string; role: string; period: string; location: string; points: (string | React.ReactNode)[]; tech: string[]; img: string; imgClassName?: string; }
 interface Project { title: string; blurb: string; links: { label: string; href: string }[]; tech: string[]; img: string; }
-interface Cert { name: string; org: string; year: string; href?: string }
+interface Cert { name: string; org: string; year: string; description?: string; href?: string }
 
 // ------------ Micro‑utils: Reveal on scroll ------------
 function useReveal() {
@@ -420,7 +420,7 @@ function getRoles(): Role[] {
         "Teaching AI-integrated data analytics (Excel, SQL, Tableau, Power BI, Access, Alteryx) to a cohort of 46 students; Designing accounting & analytics coursework with an emphasis on ethical AI",
         "Developing iRRd data pipelines at the HERD Lab in collaboration with NYU Global TIES for Children; introduced batched execution saving 24+ hours per execution and built ECG/EDA compliant MIRAGE mapping apps",
       ],
-      tech: ["Software Engineering", "Distributed Systems", "System Design", "Machine Learning", "Data Acquisition","Visual Analytics", "Ethical AI"],
+      tech: ["Software Engineering", "System Design", "Data Acquisition", "Visual Analytics", "Ethical AI", "Distributed Systems", "Machine Learning"],
       img: "./ucdavis.png",
     },
     {
@@ -433,7 +433,7 @@ function getRoles(): Role[] {
         "Re-engineered 550+ processes achieving 60% improvement in turnaround time, reducing 80% operational cost via vendor consolidation & Azure migration",
         "Built 42+ integration interfaces for Global Wealth Management streamlining client workflows; contributing to $300M+ FY’22–’24 revenue",
         "Owned end-to-end workflow with 95% defects reduction across 40+ SIT cycles, ensuring production stability",
-        "Recognised for exceptional performance and leadership in JOSH and CSR initiatives"
+        <>Earned <a href="https://www.credly.com/badges/2a455056-0625-459c-b96e-ba3245b1a22a" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">Certified Engineer</a> title and recognised with 4 awards for exceptional performance and leadership in JOSH and CSR initiatives</>
       ],
       tech: ["React", "JavaScript/TypeScript", "SpringBoot", "JEST/JUnit", "Azure", "Docker", "Kubernetes", "SQL"],
       img: "./UBS-logo.png",
@@ -472,7 +472,7 @@ function getRoles(): Role[] {
 function Experience() {
   const roles = useMemo(getRoles, []);
 
-  function renderPoint(point: string, idx: number) {
+  function renderPoint(point: string | React.ReactNode, idx: number) {
     return (
       <li key={idx} className="flex gap-3 text-sm text-white/75 dark:text-white/70">
         <svg
@@ -533,25 +533,32 @@ function Experience() {
 function getProjects(): Project[] {
   return [
     {
-      title: "FinSight — Smart Personal Finance & Investment Advisor",
-      blurb: "MERN + ML platform for expense tracking, savings forecasting, and ML‑driven portfolio plans. Attention‑LSTM + Markowitz; +18% Sharpe uplift; 500+ users.",
-      links: [{ label: "Demo", href: "https://your-demo-link" }, { label: "Code", href: "https://github.com/your-handle/finsight" }],
-      tech: ["React", "TypeScript", "Node", "FastAPI", "PostgreSQL", "Azure"],
-      img: "/icon.png",
+      title: "FinSight: Personal Finance Tracker & Investment Advisor",
+      blurb: "Financial platform for funds tracking, savings forecasting, and ML‑driven portfolio plans. Used by 500+ users; Attention-LSTM + Markowitz allocation → +18% Sharpe ratio uplift and 64% decision accuracy",
+      links: [{ label: "Demo", href: "https://github.com/haseebshaik00/FinSight" }, { label: "GitHub", href: "https://github.com/haseebshaik00/FinSight" }],
+      tech: ["MERN Stack", "D3.js", "FastAPI", "LSTM Forecasting Models"],
+      img: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2940",
     },
     {
-      title: "EventFlare — Event Engagement & Management Platform",
-      blurb: "Real‑time chat, QR polls, geo discovery, and AI recommendations (82% relevance). Used by 5+ organisations.",
-      links: [{ label: "Demo", href: "https://your-demo-link" }, { label: "Code", href: "https://github.com/your-handle/eventflare" }],
-      tech: ["React", "Vite", "GraphQL", "WebSockets", "PostgreSQL"],
-      img: "https://images.unsplash.com/photo-1515169067865-5387ec356754?q=80&w=1400&auto=format&fit=crop",
+      title: "EventFlare: Event Engagement & Management Platform",
+      blurb: "Event Engagement and Management Platform with real-time chat, QR polls, geo discovery, AI recommendations (82% relevance), used by 5+ organisations",
+      links: [{ label: "Demo", href: "https://github.com/haseebshaik00/EventFlare" }, { label: "GitHub", href: "https://github.com/your-handle/EventFlare" }],
+      tech: ["React/TypeScript", "Vite", "NodeJS & FastAPI", "PostgreSQL", "GraphQL"],
+      img: "https://images.unsplash.com/photo-1549451371-64aa98a6f660?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070",
     },
     {
-      title: "HERD Lab — iRRRd Physiological Data Pipelines",
-      blurb: "ECG/EDA processing with QC workflows and dashboards; reproducible data products for intergenerational risk & resilience research.",
-      links: [{ label: "Overview", href: "https://your-site/irr" }],
-      tech: ["R", "Python", "tidyverse", "Openxlsx", "Dashboards"],
-      img: "https://images.unsplash.com/photo-1511848575295-ffa4ea9b3e09?q=80&w=1400&auto=format&fit=crop",
+      title: "ASFI Popularity Paradigm",
+      blurb: "Analyzed 330 Apache Incubator repos by pairing a normalized GitHub pScore with socio-technical metrics, finding that developer engagement, file-level collaboration, and governance practices drive popularity while overly dense networks correlate negatively",
+      links: [{ label: "Report", href: "https://github.com/haseebshaik00/SEProject-Team4-The-Popularity-Paradigm/blob/main/final_report.pdf" }, { label: "GitHub", href: "https://github.com/haseebshaik00/SEProject-Team4-The-Popularity-Paradigm" }],
+      tech: ["Apache", "ASFI", "Web Scraping", "Regression Models", "scikit-learn"],
+      img: "https://images.unsplash.com/photo-1586448317606-cb1ec00298fc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070",
+    },
+    {
+      title: "CalFit: Optimizing Health Insights",
+      blurb: "CalFit predicts calorie burnt using monotone gradient-boosted trees with conformal prediction intervals, outperforming LASSO baselines while staying interpretable and reliable",
+      links: [{ label: "Report", href: "https://github.com/haseebshaik00/CalFit-STA-221-Project" }, { label: "GitHub", href: "https://github.com/haseebshaik00/CalFit-STA-221-Project" }],
+      tech: ["Monotonic Gradient Boosting", "XGBoost/LightGBM", "Lasso Regression", "Gradio UI", "Hyperparameters Tuning"],
+      img: "https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=987",
     },
   ];
 }
@@ -573,14 +580,14 @@ function Projects() {
   function renderItem(p: Project, idx: number) {
     return (
       <Reveal delay={idx * 80}>
-        <Card className="p-4 md:p-5">
+        <Card className="p-4 md:p-5 h-full flex flex-col">
           <div className="overflow-hidden rounded-xl aspect-[16/9] w-full mb-3">
             <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
           </div>
-          <h3 className="text-base md:text-lg font-semibold text-white dark:text-white/95">{p.title}</h3>
-          <p className="mt-2 text-xs md:text-sm text-white/70 dark:text-white/65">{p.blurb}</p>
-          <div className="mt-3 flex flex-wrap gap-2">{p.tech.map(renderTech)}</div>
-          <div className="mt-4 flex items-center gap-4">{p.links.map(renderLink)}</div>
+          <h3 className="text-sm md:text-base font-semibold text-white dark:text-white/95">{p.title}</h3>
+          <p className="mt-2 text-xs md:text-sm text-white/70 dark:text-white/65 flex-grow">{p.blurb}</p>
+          <div className="mt-3 flex flex-wrap gap-1.5">{p.tech.map(renderTech)}</div>
+          <div className="mt-4 flex items-center gap-3">{p.links.map(renderLink)}</div>
         </Card>
       </Reveal>
     );
@@ -590,28 +597,73 @@ function Projects() {
     <section id="projects" className="pt-16 sm:pt-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
         <SectionTitle kicker="" title="Projects" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">{items.map(renderItem)}</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">{items.map(renderItem)}</div>
       </div>
     </section>
   );
 }
 
 function Skills() {
+  const CodeIcon = () => (
+    <svg className="w-6 h-6 text-[var(--brand-blue)]" fill="currentColor" viewBox="0 0 20 20">
+      <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+    </svg>
+  );
+
+  const DatabaseIcon = () => (
+    <svg className="w-6 h-6 text-[var(--brand-blue)]" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z" />
+      <path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z" />
+      <path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z" />
+    </svg>
+  );
+
+  const GearIcon = () => (
+    <svg className="w-6 h-6 text-[var(--brand-blue)]" fill="currentColor" viewBox="0 0 20 20">
+      <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+    </svg>
+  );
+
+  const FrameworkIcon = () => (
+    <svg className="w-6 h-6 text-[var(--brand-blue)]" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+    </svg>
+  );
+
   const stacks = useMemo(function () {
     return [
-      { group: "Languages", items: ["C++", "Java", "Python", "JavaScript", "TypeScript"] },
-      { group: "Frameworks", items: ["React", "Next.js", "Node", "Express", "FastAPI", "Spring Boot"] },
-      { group: "Data & Infra", items: ["PostgreSQL", "MongoDB", "Azure", "Kubernetes", "Docker", "CI/CD"] },
-      { group: "Concepts", items: ["System Design", "Microservices", "REST/GraphQL", "ML for Product", "DSA"] },
+      {
+        group: "Programming Languages",
+        icon: <CodeIcon />,
+        items: ["C/C++", "Java", "Python", "JavaScript", "TypeScript", "HTML5", "CSS3", "Bootstrap", "Tailwind CSS", "Material UI"]
+      },
+      {
+        group: "Frameworks and Libraries",
+        icon: <FrameworkIcon />,
+        items: ["ReactJS", "NodeJS", "ExpressJS", "SpringBoot", "FastAPI", "GraphQL", "RTL", "JEST", "JUnit", "Selenium"]
+      },
+      {
+        group: "Databases and Data Tools",
+        icon: <DatabaseIcon />,
+        items: ["SQL", "MySQL", "PostgreSQL", "SQLite", "NoSQL", "MongoDB", "Access", "Alteryx", "Power BI"]
+      },
+      {
+        group: "Development Tools and Services",
+        icon: <GearIcon />,
+        items: ["REST APIs", "GIT", "CI/CD", "JIRA", "Vite", "Postman", "Docker", "Kubernetes", "Azure", "AWS"]
+      },
     ];
   }, []);
 
   function renderItem(itm: string, idx: number) { return <Badge key={idx}>{itm}</Badge>; }
-  function renderGroup(g: { group: string; items: string[] }, idx: number) {
+  function renderGroup(g: { group: string; icon: React.ReactNode; items: string[] }, idx: number) {
     return (
       <Reveal delay={idx * 60}>
-        <Card>
-          <h4 className="text-sm font-semibold text-white dark:text-white/95 mb-4">{g.group}</h4>
+        <Card className="p-5 bg-white/5">
+          <div className="flex items-center gap-3 mb-4">
+            {g.icon}
+            <h4 className="text-base font-semibold text-white dark:text-white/95">{g.group}</h4>
+          </div>
           <div className="flex flex-wrap gap-2">{g.items.map(renderItem)}</div>
         </Card>
       </Reveal>
@@ -622,7 +674,7 @@ function Skills() {
     <section id="skills" className="pt-16 sm:pt-20">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
         <SectionTitle kicker="" title="Skills" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{stacks.map(renderGroup)}</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">{stacks.map(renderGroup)}</div>
       </div>
     </section>
   );
@@ -630,10 +682,10 @@ function Skills() {
 
 function getPosts() {
   return [
-    { title: "10 Ways to Solve Fibonacci (with time complexity)", href: "https://medium.com/@your-handle/fibonacci-10-ways", date: "2025", img: "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1200&auto=format&fit=crop" },
-    { title: "Attention‑LSTM + Markowitz for Smart Allocation", href: "https://medium.com/@your-handle/modelx-allocation", date: "2025", img: "https://images.unsplash.com/photo-1518183214770-9cffbec72538?q=80&w=1200&auto=format&fit=crop" },
-    { title: "Event Platforms with GraphQL", href: "https://medium.com/@your-handle/event-graphql", date: "2024", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop" },
-    { title: "Clean Architecture for FastAPI", href: "https://medium.com/@your-handle/fastapi-clean", date: "2024", img: "https://images.unsplash.com/photo-1534759846116-57968a6b6b77?q=80&w=1200&auto=format&fit=crop" },
+    { title: "Coincensus: Split Bills and Track Balances Powered by ResilientDB", href: "https://medium.com/@haseebshaik00/coincensus-split-bills-and-track-balances-powered-by-resilientdb-1ec46253312a", img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*j7LPyKLoHwY-u9iHAuyhdA.png" },
+    { title: "Visual Modeling Techniques in Software and Data Engineering", href: "https://medium.com/@haseebshaik00/visual-modeling-techniques-in-software-and-data-engineering-b3c88bde223f", img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/0*FjIabpj8LksHeQxn" },
+    { title: "Do You Really Know Agile?", href: "https://medium.com/@haseebshaik00/do-you-really-know-agile-99a9d1d630c7", img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/0*kiDbSMIeETIgiyiP" },
+    { title: "Unraveling the Fibonacci Sequence: A Comprehensive Analysis of Different Approaches", href: "https://medium.com/@haseebshaik00/unraveling-the-fibonacci-sequence-a-comprehensive-analysis-of-different-approaches-c18616eec0b3", img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/0*hiC_3OQtzVzXExEK" },
   ];
 }
 
@@ -695,9 +747,48 @@ function Blogs() {
 function Certifications() {
   const certs: Cert[] = useMemo(function () {
     return [
-      { name: "Azure Fundamentals (AZ‑900)", org: "Microsoft", year: "2024", href: "https://link-to-credential" },
-      { name: "Kubernetes Basics", org: "CNCF", year: "2024" },
-      { name: "Data Engineering Essentials", org: "Coursera", year: "2023" },
+      {
+        name: "CDIO Champion",
+        org: "UBS",
+        year: "Dec 2022",
+        description: "Recognized for elevating firm's culture quotient through JOSH initiatives, contributing to employee experience and involvement.",
+        href: "https://www.linkedin.com/in/haseebshaik00/details/honors/1727922037681/single-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns"
+      },
+      {
+        name: "Silver Volunteer 2022",
+        org: "Kreedo, UBS",
+        year: "Dec 2022",
+        description: "Developed Practico, a gamification learning app with NGO Kreedo to enhance sensory, motor, analytical, and math skills for middle school children.",
+        href: "https://www.business-standard.com/content/press-releases-ani/kreedo-early-childhood-solutions-launches-a-gaming-app-to-improve-learning-outcomes-in-budget-private-schools-and-preschools-122111600950_1.html"
+      },
+      {
+        name: "Publicity, Marketing and Outreach Head",
+        org: "SIAM VIT",
+        year: "Dec 2019 - Feb 2022",
+        description: "Led marketing campaigns and outreach events, boosted candidate frequency by 50% during recruitment, and increased event participation by 60% in 2020.",
+        href: "https://www.linkedin.com/in/haseebshaik00/overlay/education/584866014/multiple-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns&treasuryMediaId=1727936862708"
+      },
+      {
+        name: "Senior Core Committee Member",
+        org: "VIT LEO CLUB",
+        year: "Dec 2019 - Feb 2022",
+        description: "Handled recruitment processes and organized outreach events for underprivileged schools, cancer awareness, and blood donation drives.",
+        href: "https://www.linkedin.com/in/haseebshaik00/overlay/education/584866014/multiple-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns&treasuryMediaId=1727936862709"
+      },
+      {
+        name: "Semi-Finalist in Ideathon 3.0",
+        org: "VITMAS & 5th Pillar VIT",
+        year: "Sep 2019",
+        description: "Demonstrated a novel irrigation approach integrating pisciculture with a regression-based statistical model to optimize nutrient levels.",
+        href: "https://www.linkedin.com/in/haseebshaik00/details/honors/1727921818315/single-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns"
+      },
+      {
+        name: "Best Idea Presentation in NSABS",
+        org: "Sigma XI",
+        year: "Apr 2019",
+        description: "Proposed an innovative solution to replace traditional plastic with bioplastics, supported by cost optimization analysis and scalability metrics.",
+        href: "https://www.linkedin.com/in/haseebshaik00/details/honors/1727921536727/single-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns"
+      }
     ];
   }, []);
 
@@ -706,12 +797,15 @@ function Certifications() {
       <Reveal delay={idx * 80}>
         <Card>
           <div className="flex items-start justify-between gap-3">
-            <div>
+            <div className="flex-1">
               <h4 className="text-sm font-semibold text-white dark:text-white/95">{c.name}</h4>
               <p className="text-xs text-white/60 dark:text-white/50 mt-1">{c.org} · {c.year}</p>
+              {c.description && (
+                <p className="text-xs text-white/70 dark:text-white/60 mt-2">{c.description}</p>
+              )}
             </div>
             {c.href ? (
-              <a href={c.href} target="_blank" rel="noreferrer noopener" className="text-white/70 hover:text-[var(--brand-blue)] transition-colors"><ExternalIcon /></a>
+              <a href={c.href} target="_blank" rel="noreferrer noopener" className="text-white/70 hover:text-[var(--brand-blue)] transition-colors flex-shrink-0"><ExternalIcon /></a>
             ) : null}
           </div>
         </Card>
@@ -832,7 +926,7 @@ function ContactForm() {
               onChange={handleChange}
               required
               className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-white placeholder-white/40 focus:outline-none focus:border-[#6A6AFF] focus:ring-2 focus:ring-[#6A6AFF]/20 transition-all"
-              placeholder="Your name"
+              placeholder="Full name"
             />
           </div>
           <div>
@@ -878,15 +972,15 @@ function ContactForm() {
             required
             rows={6}
             className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-white placeholder-white/40 focus:outline-none focus:border-[#6A6AFF] focus:ring-2 focus:ring-[#6A6AFF]/20 transition-all resize-none"
-            placeholder="Tell me about your project or just say hello..."
+            placeholder="Tell me about your project or just say hello!"
           />
         </div>
         <button
           type="submit"
           disabled={status === 'sending'}
           className={`w-full px-6 py-4 rounded-xl text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg flex items-center justify-center gap-2 ${status === 'success'
-              ? '!bg-[#22C55E] hover:!bg-[#16A34A] shadow-[#22C55E]/20'
-              : '!bg-[var(--brand-blue)] hover:!bg-[var(--brand-blue-600)] shadow-[var(--brand-blue)]/20 hover:shadow-[#6A6AFF]/30'
+            ? '!bg-[#22C55E] hover:!bg-[#16A34A] shadow-[#22C55E]/20'
+            : '!bg-[var(--brand-blue)] hover:!bg-[var(--brand-blue-600)] shadow-[var(--brand-blue)]/20 hover:shadow-[#6A6AFF]/30'
             }`}
         >
           {status === 'sending' ? (
@@ -974,7 +1068,7 @@ function Contact() {
 // ------------ Chrome ------------
 function Footer() {
   return (
-    <footer className="pb-8 sm:pb-10">
+    <footer className="pb-4 sm:pb-6">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-16">
         <div className="flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-xs">
