@@ -121,7 +121,7 @@ function LoadingSplash() {
       </div>
       <div className="mt-8 sm:mt-6 flex items-center gap-3 text-sm sm:text-base text-white/70 animate-[fadeInUp_0.6s_ease-out_0.3s_both]">
         <div className="h-4 w-4 sm:h-5 sm:w-5 rounded-full border-2 border-white/30 border-t-[#6A6AFF] animate-spin" />
-        <span className="font-medium">Loading portfolio!</span>
+        <span className="font-medium">Open to Fulltime SDE Roles & <br /> Summer'26 SDE Internships!</span>
       </div>
       <div className="mt-2 text-xs text-white/40 animate-[fadeInUp_0.6s_ease-out_0.5s_both]">
         {Math.round(progress)}%
@@ -297,7 +297,8 @@ function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-8 md:gap-12 items-center">
           <Reveal>
             <div>
-              <p className="tracking-widest text-[10px] sm:text-xs md:text-[12px] text-neutral-400 dark:text-neutral-500"><b>Open to Fulltime Software Engineer Roles and Summer'26 SDE Internships!</b></p>
+              <p className="tracking-widest text-[10px] sm:text-xs md:text-[12px] text-neutral-400 dark:text-neutral-500"><b>Open to Fulltime Software Engineer Roles and Summer'26 SDE Internships!
+                <br /> <span className="italic">Graduation Date: March 2026 (Expected) | Open to Relocation</span></b></p>
               <h1 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white dark:text-white/95">Hey, I'm Haseeb!</h1>
 
               {/* Professional Title & Roles */}
@@ -314,10 +315,14 @@ function Hero() {
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-blue)]"></span>
                     MSCS @ UC Davis
                   </span>
-                  <span className="w-full"></span>
+                  {/* <span className="w-full"></span> */}
                   <span className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-blue)]"></span>
-                    GSM TA and Researcher @ HERD Lab & ExpoLab, UC Davis
+                    Researcher @ HERD Lab & ExpoLab, UC Davis
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-blue)]"></span>
+                    Teaching Assistant, Graduate School of Management, UC Davis
                   </span>
                 </div>
               </div>
@@ -487,12 +492,12 @@ function getRoles(): Role[] {
     {
       company: "University of California, Davis",
       role: "MSCS Graduate Student, Teaching Assistant and Researcher",
-      period: "Jan 2025 – Present",
+      period: "Sep 2024 – Present",
       location: "Davis, CA",
       points: [
-        "Building scalable, secure, AI-driven full-stack products. Also, scaling FinSight on ResilientDB at ExpoLab by integrating a bill-splitting module that enables transparent, auditable transactions between individuals",
-        "Teaching AI-integrated data analytics (Excel, SQL, Tableau, Power BI, Access, Alteryx) to a cohort of 46 students; Designing accounting & analytics coursework with an emphasis on ethical AI",
-        "Developing iRRd data pipelines at the HERD Lab in collaboration with NYU Global TIES for Children; introduced batched execution saving 24+ hours per execution and built ECG/EDA compliant MIRAGE mapping apps",
+        <>Building scalable, secure, AI-driven full-stack products. Also, scaling <a href="https://github.com/haseebshaik00/FinSight" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">FinSight</a> on ResilientDB at <a href="https://expolab.org/" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">ExpoLab</a> by integrating a bill-splitting module that enables transparent, auditable transactions between individuals</>,
+        <>As a Teaching Assistant at <a href="https://gsm.ucdavis.edu/" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">Graduate School of Management, UC Davis</a>, teaching AI-integrated data analytics (SQL, Alteryx, Access, iXBRL, Excel, Tableau, and Power BI) to a cohort of 45+ students; Designing accounting & analytics coursework with an emphasis on ethical AI</>,
+        <>Developing iRRd data pipelines at the <a href="https://herdlab.faculty.ucdavis.edu/" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">HERD Lab</a> in collaboration with <a href="https://globaltiesforchildren.nyu.edu/" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">NYU Global TIES for Children</a>; introduced batched execution saving 24+ hours per execution and built ECG/EDA compliant MIRAGE mapping apps</>
       ],
       tech: ["Software Engineering", "System Design", "Data Acquisition", "Visual Analytics", "Ethical AI", "Distributed Systems", "Machine Learning"],
       img: "/ucdavis.png",
@@ -507,7 +512,7 @@ function getRoles(): Role[] {
         "Re-engineered 550+ processes achieving 60% improvement in turnaround time, reducing 80% operational cost via vendor consolidation & Azure migration",
         "Built 42+ integration interfaces for Global Wealth Management streamlining client workflows; contributing to $300M+ FY’22–’24 revenue",
         "Owned end-to-end workflow with 95% defects reduction across 40+ SIT cycles, ensuring production stability",
-        <>Earned <a href="https://www.credly.com/badges/2a455056-0625-459c-b96e-ba3245b1a22a" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">Certified Engineer</a> title and recognised with 4 awards for exceptional performance and leadership in JOSH and CSR initiatives</>
+        <>Earned <a href="https://www.credly.com/badges/2a455056-0625-459c-b96e-ba3245b1a22a" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">Certified Engineer</a> title and recognised with <a rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">4 awards</a> for exceptional performance and leadership in JOSH and CSR initiatives</>
       ],
       tech: ["React", "JavaScript/TypeScript", "SpringBoot", "JEST/JUnit", "Azure", "Docker", "Kubernetes", "SQL"],
       img: "/UBS-logo.png",
@@ -616,7 +621,7 @@ function getProjects(): Project[] {
     {
       title: "EventFlare: Event Engagement & Management Platform",
       blurb: "Event Engagement and Management Platform with real-time chat, QR polls, geo discovery, AI recommendations (82% relevance), used by 5+ organisations",
-      links: [{ label: "Demo", href: "https://github.com/haseebshaik00/EventFlare" }, { label: "GitHub", href: "https://github.com/your-handle/EventFlare" }],
+      links: [{ label: "Demo", href: "https://github.com/haseebshaik00/EventFlare" }, { label: "GitHub", href: "https://github.com/haseebshaik00/EventFlare" }],
       tech: ["React/TypeScript", "Vite", "NodeJS & FastAPI", "PostgreSQL", "GraphQL"],
       img: "https://images.unsplash.com/photo-1549451371-64aa98a6f660?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070",
     },
@@ -630,7 +635,7 @@ function getProjects(): Project[] {
     {
       title: "CalFit: Optimizing Health Insights",
       blurb: "CalFit predicts calorie burnt using monotone gradient-boosted trees with conformal prediction intervals, outperforming LASSO baselines while staying interpretable and reliable",
-      links: [{ label: "Report", href: "https://github.com/haseebshaik00/CalFit-STA-221-Project" }, { label: "GitHub", href: "https://github.com/haseebshaik00/CalFit-STA-221-Project" }],
+      links: [{ label: "Report", href: "https://github.com/haseebshaik00/CalFit-STA-221-Project/blob/main/Team%2011%20-%20STA%20221%20Final%20Report.pdf" }, { label: "GitHub", href: "https://github.com/haseebshaik00/CalFit-STA-221-Project" }],
       tech: ["Monotonic Gradient Boosting", "XGBoost/LightGBM", "Lasso Regression", "Gradio UI", "Hyperparameters Tuning"],
       img: "https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=987",
     },
@@ -1138,7 +1143,7 @@ function Contact() {
                 }
                 title="Location"
                 href="https://maps.app.goo.gl/nfQHEdRko5vD6gqB8"
-                content="Davis, CA (Open to relocate)"
+                content="Davis, CA (Open to Relocation)"
               />
             </div>
           </Reveal>
