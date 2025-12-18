@@ -182,7 +182,7 @@ function SocialIcon(props: SocialIconProps) {
 
 function ExternalIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 mb-0.5" >
       <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
       <path d="M15 3h6v6" />
       <path d="M10 14L21 3" />
@@ -408,7 +408,7 @@ function About() {
         <Reveal>
           <Card className="max-w-6xl mx-auto bg-white/10 border border-white/20">
             <div className="text-white/80 dark:text-white/75 leading-7 text-base md:text-lg">
-              <p>I'm currently pursuing <a href="https://www.linkedin.com/in/haseebshaik00/overlay/1759710762723/single-media-viewer/?type=DOCUMENT&profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-600 font-medium">Master's in Computer Science (GPA: 3.91) </a> at the University of California, Davis, focusing on building scalable, secure, AI-driven full-stack products. 
+              <p>I'm currently pursuing <a href="https://www.linkedin.com/in/haseebshaik00/details/education/1766080065104/single-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-600 font-medium">Master's in Computer Science (GPA: 3.91) </a> at the University of California, Davis, focusing on building scalable, secure, AI-driven full-stack products. 
               I also hold a <a href="https://www.linkedin.com/in/haseebshaik00/overlay/education/584866014/multiple-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns&treasuryMediaId=1727937170325" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-600 font-medium">Bachelor's in Computer Science (CGPA: 9.34)</a> from VIT Vellore, India. My experience spans three years as a <a 
                   href="#experience"
                   onClick={(e) => {
