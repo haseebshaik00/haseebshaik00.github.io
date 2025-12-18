@@ -297,8 +297,10 @@ function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-8 md:gap-12 items-center">
           <Reveal>
             <div>
-              <p className="tracking-widest text-[10px] sm:text-xs md:text-[12px] text-neutral-400 dark:text-neutral-500"><b>Open to Fulltime Software Engineer Roles and Summer'26 SDE Internships!
-                <br /> <span className="italic">Graduation Date: March 2026 (Expected) | Open to Relocation</span></b></p>
+              <p className="tracking-widest text-[10px] sm:text-xs md:text-[12px] text-neutral-400 dark:text-neutral-500"><b>Open to Fulltime Software Engineer Roles & Summer'26 SDE Internships!
+                <br /> <span className="italic">Location: Davis, CA (Open to Relocation)</span>
+                </b>
+                </p>
               <h1 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white dark:text-white/95">Hey, I'm Haseeb!</h1>
 
               {/* Professional Title & Roles */}
@@ -322,7 +324,7 @@ function Hero() {
                   </span>
                   <span className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-blue)]"></span>
-                    Teaching Assistant, Graduate School of Management, UC Davis
+                    Research & Teaching Assistant, Graduate School of Management, UC Davis
                   </span>
                 </div>
               </div>
@@ -406,7 +408,8 @@ function About() {
         <Reveal>
           <Card className="max-w-6xl mx-auto bg-white/10 border border-white/20">
             <div className="text-white/80 dark:text-white/75 leading-7 text-base md:text-lg">
-              <p>I'm currently pursuing <a href="https://www.linkedin.com/in/haseebshaik00/overlay/1759710762723/single-media-viewer/?type=DOCUMENT&profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-600 font-medium">Master's in Computer Science (GPA: 3.9) </a> at the University of California, Davis, focusing on building scalable, secure, AI-driven full-stack products. I also hold a <a href="https://www.linkedin.com/in/haseebshaik00/overlay/education/584866014/multiple-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns&treasuryMediaId=1727937170325" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-600 font-medium">Bachelor's in Computer Science (CGPA: 9.34)</a> from VIT Vellore, India. My experience spans three years as a <a 
+              <p>I'm currently pursuing <a href="https://www.linkedin.com/in/haseebshaik00/overlay/1759710762723/single-media-viewer/?type=DOCUMENT&profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-600 font-medium">Master's in Computer Science (GPA: 3.91) </a> at the University of California, Davis, focusing on building scalable, secure, AI-driven full-stack products. 
+              I also hold a <a href="https://www.linkedin.com/in/haseebshaik00/overlay/education/584866014/multiple-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns&treasuryMediaId=1727937170325" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-600 font-medium">Bachelor's in Computer Science (CGPA: 9.34)</a> from VIT Vellore, India. My experience spans three years as a <a 
                   href="#experience"
                   onClick={(e) => {
                     e.preventDefault();
@@ -430,7 +433,7 @@ function About() {
                     }
                   }}
                   className="text-blue-400 underline hover:text-blue-600 font-medium cursor-pointer"
-                >Teaching Assistant</a> at UC Davis's Graduate School of Management and a <a 
+                >Research & Teaching Assistant</a> at UC Davis's Graduate School of Management and a <a 
                   href="#experience"
                   onClick={(e) => {
                     e.preventDefault();
@@ -496,7 +499,7 @@ function getRoles(): Role[] {
       location: "Davis, CA",
       points: [
         <>Building scalable, secure, AI-driven full-stack products. Also, scaling <a href="https://github.com/haseebshaik00/FinSight" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">FinSight</a> on ResilientDB at <a href="https://expolab.org/" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">ExpoLab</a> by integrating a bill-splitting module that enables transparent, auditable transactions between individuals</>,
-        <>As a Teaching Assistant at <a href="https://gsm.ucdavis.edu/" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">Graduate School of Management, UC Davis</a>, teaching AI-integrated data analytics (SQL, Alteryx, Access, iXBRL, Excel, Tableau, and Power BI) to a cohort of 45+ students; Designing accounting & analytics coursework with an emphasis on ethical AI</>,
+        <>As a Research & Teaching Assistant at <a href="https://gsm.ucdavis.edu/" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">Graduate School of Management, UC Davis</a>, teaching AI-integrated data analytics (SQL, Alteryx, Access, iXBRL, Excel, Tableau, and Power BI) to a cohort of 45+ students; Designing accounting & analytics coursework with an emphasis on ethical AI</>,
         <>Developing iRRd data pipelines at the <a href="https://herdlab.faculty.ucdavis.edu/" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">HERD Lab</a> in collaboration with <a href="https://globaltiesforchildren.nyu.edu/" target="_blank" rel="noopener noreferrer" className="underline text-[var(--brand-blue)] hover:text-[var(--brand-blue-400)] transition-colors">NYU Global TIES for Children</a>; introduced batched execution saving 24+ hours per execution and built ECG/EDA compliant MIRAGE mapping apps</>
       ],
       tech: ["Software Engineering", "System Design", "Data Acquisition", "Visual Analytics", "Ethical AI", "Distributed Systems", "Machine Learning"],
