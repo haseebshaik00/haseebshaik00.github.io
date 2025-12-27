@@ -852,7 +852,7 @@ function Certifications() {
         href: "https://www.linkedin.com/in/haseebshaik00/overlay/education/584866014/multiple-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns&treasuryMediaId=1727936862708"
       },
       {
-        name: "Senior Core Committee Member",
+        name: "Senior Core Committee Member (Logisitcs Team)",
         org: "VIT LEO CLUB",
         year: "Dec 2019 - Feb 2022",
         description: "Handled recruitment processes and organized outreach events for underprivileged schools, cancer awareness, and blood donation drives.",
