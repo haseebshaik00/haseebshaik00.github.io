@@ -121,7 +121,7 @@ function LoadingSplash() {
       </div>
       <div className="mt-8 sm:mt-6 flex items-center gap-3 text-sm sm:text-base text-white/70 animate-[fadeInUp_0.6s_ease-out_0.3s_both]">
         <div className="h-4 w-4 sm:h-5 sm:w-5 rounded-full border-2 border-white/30 border-t-[#6A6AFF] animate-spin" />
-        <span className="font-medium">Open to Fulltime SDE Roles & <br /> Summer'26 SDE Internships!</span>
+        <span className="font-medium">Open to Fulltime SWE Roles ...</span>
       </div>
       <div className="mt-2 text-xs text-white/40 animate-[fadeInUp_0.6s_ease-out_0.5s_both]">
         {Math.round(progress)}%
@@ -297,7 +297,7 @@ function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] gap-8 md:gap-12 items-center">
           <Reveal>
             <div>
-              <p className="tracking-widest text-[10px] sm:text-xs md:text-[12px] text-neutral-400 dark:text-neutral-500"><b>Open to Fulltime Software Engineer Roles & Summer'26 SDE Internships!
+              <p className="tracking-widest text-[10px] sm:text-xs md:text-[12px] text-neutral-400 dark:text-neutral-500"><b>Open to Fulltime Software Engineer Roles <br /> Graduation Date: December, 2026
                 <br /> <span className="italic">Location: Davis, CA (Open to Relocation)</span>
                 </b>
                 </p>
@@ -305,13 +305,11 @@ function Hero() {
 
               {/* Professional Title & Roles */}
               <div className="mt-4 sm:mt-5 space-y-2">
-                <p className="text-base sm:text-lg font-semibold text-white/90 dark:text-white/85">
-                  Full-Stack Software Engineer
-                </p>
+                <p className="text-base sm:text-lg font-semibold text-white/90 dark:text-white/85">Incoming SWE Intern @ eBay <br /> Full-Stack Software Engineer</p>
                 <div className="flex flex-wrap items-center gap-x-2 sm:gap-x-3 gap-y-1 text-xs sm:text-sm text-white/70 dark:text-white/65">
                   <span className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-blue)]"></span>
-                    Ex-SWE @ UBS (3 years)
+                    Ex-SWE @ UBS (2 years)
                   </span>
                   <span className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-blue)]"></span>
@@ -328,18 +326,15 @@ function Hero() {
                   </span>
                 </div>
               </div>
-
               {/* Description */}
               <p className="mt-3 sm:mt-4 text-sm sm:text-base text-white/75 dark:text-white/70 leading-relaxed max-w-xl">
                 I build scalable AI-driven data to decision products with robust data models, polished UIs, and improve backends with measurable performance gains.
               </p>
-
               <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
                 <a href={import.meta.env.BASE_URL + 'resume.pdf'} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-2 rounded-xl px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium border-2 border-white/20 text-white/90 hover:border-white/40 hover:text-white transition-all backdrop-blur-sm hover:scale-105 active:scale-95">
                   <DownloadIcon /> <b>Download Resume</b>
                 </a>
-                <a
-                  href="#contact"
+                <a href="#contact"
                   onClick={(e) => {
                     e.preventDefault();
                     const targetId = '#contact'.replace('#', '');
@@ -409,7 +404,7 @@ function About() {
           <Card className="max-w-6xl mx-auto bg-white/10 border border-white/20">
             <div className="text-white/80 dark:text-white/75 leading-7 text-base md:text-lg">
               <p>I'm currently pursuing <a href="https://www.linkedin.com/in/haseebshaik00/details/education/1766080065104/single-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-600 font-medium">Master's in Computer Science (GPA: 3.91) </a> at the University of California, Davis, focusing on building scalable, secure, AI-driven full-stack products. 
-              I also hold a <a href="https://www.linkedin.com/in/haseebshaik00/overlay/education/584866014/multiple-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns&treasuryMediaId=1727937170325" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-600 font-medium">Bachelor's in Computer Science (CGPA: 9.34)</a> from VIT Vellore, India. My experience spans three years as a <a 
+              I also hold a <a href="https://www.linkedin.com/in/haseebshaik00/overlay/education/584866014/multiple-media-viewer/?profileId=ACoAACsxNGgBiud29STPssCuUdPlfSyqxDGRVns&treasuryMediaId=1727937170325" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-600 font-medium">Bachelor's in Computer Science (CGPA: 9.34)</a> from VIT Vellore, India. My experience spans two years as a <a 
                   href="#experience"
                   onClick={(e) => {
                     e.preventDefault();
