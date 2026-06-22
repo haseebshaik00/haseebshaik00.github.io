@@ -121,7 +121,7 @@ function LoadingSplash() {
       </div>
       <div className="mt-8 sm:mt-6 flex items-center gap-3 text-sm sm:text-base text-white/70 animate-[fadeInUp_0.6s_ease-out_0.3s_both]">
         <div className="h-4 w-4 sm:h-5 sm:w-5 rounded-full border-2 border-white/30 border-t-[#6A6AFF] animate-spin" />
-        <span className="font-medium">Open to Fulltime SWE Roles ...</span>
+        <span className="font-medium">Open to Fulltime SWE Roles!<span>
       </div>
       <div className="mt-2 text-xs text-white/40 animate-[fadeInUp_0.6s_ease-out_0.5s_both]">
         {Math.round(progress)}%
@@ -305,7 +305,7 @@ function Hero() {
 
               {/* Professional Title & Roles */}
               <div className="mt-4 sm:mt-5 space-y-2">
-                <p className="text-base sm:text-lg font-semibold text-white/90 dark:text-white/85">Incoming SWE Intern @ eBay <br /> Full-Stack Software Engineer</p>
+                <p className="text-base sm:text-lg font-semibold text-white/90 dark:text-white/85">SWE Intern @ eBay Inc.<br /> Full-Stack Software Engineer</p>
                 <div className="flex flex-wrap items-center gap-x-2 sm:gap-x-3 gap-y-1 text-xs sm:text-sm text-white/70 dark:text-white/65">
                   <span className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-blue)]"></span>
