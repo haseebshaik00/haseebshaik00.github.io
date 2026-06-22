@@ -121,7 +121,7 @@ function LoadingSplash() {
       </div>
       <div className="mt-8 sm:mt-6 flex items-center gap-3 text-sm sm:text-base text-white/70 animate-[fadeInUp_0.6s_ease-out_0.3s_both]">
         <div className="h-4 w-4 sm:h-5 sm:w-5 rounded-full border-2 border-white/30 border-t-[#6A6AFF] animate-spin" />
-        <span className="font-medium">Open to Fulltime SWE Roles!<span>
+        <span className="font-medium">Open to Fulltime SWE Roles!</span>
       </div>
       <div className="mt-2 text-xs text-white/40 animate-[fadeInUp_0.6s_ease-out_0.5s_both]">
         {Math.round(progress)}%
